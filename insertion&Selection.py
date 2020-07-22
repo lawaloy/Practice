@@ -16,4 +16,4 @@ def selectionSort(arr):
             if arr[minIndex] > arr[j]:
                 arr[minIndex],arr[j] = arr[j],arr[minIndex]
     return arr
-print(selectionSort([6,12,3,4,9,3,-1]))
+print(selectionSort([6,12,3,4,9,-2,-1]))
