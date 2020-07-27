@@ -18,6 +18,6 @@ def magic_num(num):
 
 """
 N = len(ans)
-TIme: O(log(Num) + (N))
-Space: O(N)
+Time Complexity: O(log(Num) + (N))
+Space Complexity: O(N)
 """
