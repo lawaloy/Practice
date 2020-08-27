@@ -3,7 +3,7 @@ class RandomizedSet(object):
 
     def __init__(self):
         """
-        Initialize the data structure.
+        Initialize your data structure here.
         """
         self._arrayList = []
         self._unorderedMap = {}
