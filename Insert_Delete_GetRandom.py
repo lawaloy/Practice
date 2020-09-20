@@ -25,7 +25,7 @@ class RandomizedSet(object):
         """
         Removes a value from the set. Returns true if the set contained the specified element.
         :type val: int
-        :rtype: boolean
+        :rtype: bool
         """
         if val not in self._unorderedMap:
             return False
