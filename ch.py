@@ -26,4 +26,4 @@ def mergeSort(dataset):
 			k+=1
 	return dataset
 
-print(mergeSort([2000,309]))
+print(mergeSort([2000,309,4,200,-1,0,909,1]))
