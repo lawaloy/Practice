@@ -1,30 +1,15 @@
-#!/bin/python3
+def mutateTheArray(n, a):
+    if not  a:
+        return[]
+    b = [0]* len(a)
+    for num in range(n):
+        if num-1 < 0:
+            b[num] = 0 + a[num] + a[num+1]
+        elif num+1 >= n:
+            b[num] = a[num-1]+a[num]+0
+        else:
+            b[num] = a[num-1] + a[num] + a[num+1]
+    return b
 
-import math
-import os
-import random
-import re
-import sys
-
-# Complete the arrayManipulation function below.
-def arrayManipulation(n, queries):
-    arr = [0] * (n)
-    queries_length = len(queries)
-    for idx in range(queries_length):
-        arr[queries[idx][0]] += queries[idx][2]
-        if queries[idx][1]+1 < n:
-            arr[queries[idx][1]] -= queries[idx][2]
-    curSum = 0
-    totalMax = float("-inf")
-    for num in arr:
-        curSum += num
-        totalMax = max(curSum, totalMax)
-    return(totalMax)
-
-
-queries = [[2, 3, 603],[1, 1, 286],[4, 4, 882]]
-n = 5
-print(arrayManipulation(n, queries))
-
-
+print (mutateTheArray(5, [4, 0, 1, -2, 3]))
 
