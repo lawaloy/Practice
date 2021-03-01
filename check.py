@@ -1,15 +1,34 @@
-def mutateTheArray(n, a):
-    if not  a:
-        return[]
-    b = [0]* len(a)
-    for num in range(n):
-        if num-1 < 0:
-            b[num] = 0 + a[num] + a[num+1]
-        elif num+1 >= n:
-            b[num] = a[num-1]+a[num]+0
-        else:
-            b[num] = a[num-1] + a[num] + a[num+1]
-    return b
+from collections import deque
+def shortestPath(source, target, words):
 
-print (mutateTheArray(5, [4, 0, 1, -2, 3]))
+    if not source or not target or not words:
+        return -1
 
+    words_set = set(words)
+    if target not in words_set:
+        return -1
+
+    word_char_set = set()
+    for word in words:
+        for char in word:
+            word_char_set.add(char)
+
+ 
+    count = 0
+    queue = deque([(source, count)])
+    while queue:
+        curWord, count = queue.popleft()
+
+        if curWord == target:
+            return count
+        for w in range(len(curWord)):
+            for c in word_char_set:
+                sec = curWord[:w] + c + curWord[w+1:]
+                if sec in words_set:
+                    
+                    words_set.remove(sec)
+                    queue.append((sec, count+1))
+
+    return -1
+
+print(shortestPath("bit", "dog", ["but", "put", "big", "pot", "pog", "dog", "lot"]))
